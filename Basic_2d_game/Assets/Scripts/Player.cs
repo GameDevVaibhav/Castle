@@ -11,10 +11,14 @@ public class Player : MonoBehaviour
     BoxCollider2D myBoxCollider2d;
     PolygonCollider2D myPolygonCollider2d;
 
+    float startingGravityScale;
+
     [SerializeField]
     float runspeed = 2f;
     [SerializeField]
     float jumpspeed = 2f;
+    [SerializeField]
+    float climbspeed = 8f;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,14 +27,18 @@ public class Player : MonoBehaviour
         myAnimator= GetComponent<Animator>();
         myBoxCollider2d= GetComponent<BoxCollider2D>();
         myPolygonCollider2d= GetComponent<PolygonCollider2D>();
+        startingGravityScale=myRigidbody2D.gravityScale;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
+       
         Run();
-        
+        Jump();
+        climb();
     }
+   
 
     public void Run()
     {
@@ -44,13 +52,30 @@ public class Player : MonoBehaviour
         ChangeJumpAnimation();
        
     }
+  
 
-    public void Jump(InputAction.CallbackContext context)
+    private void climb()
+    {
+        if (myBoxCollider2d.IsTouchingLayers(LayerMask.GetMask("Climbing")))
+        {
+            Debug.Log("istouching");
+            float verticalInput = Input.GetAxis("Vertical");
+            Vector2 climbingV = new Vector2(myRigidbody2D.velocity.x, verticalInput * climbspeed);
+            myRigidbody2D.velocity = climbingV;
+
+            myRigidbody2D.gravityScale = 0f;
+        }
+        else { myRigidbody2D.gravityScale = startingGravityScale; }
+    }
+
+    public void Jump()
     {
         if (!myPolygonCollider2d.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
-       
-            myRigidbody2D.velocity=new Vector2(myRigidbody2D.velocity.x,jumpspeed);
-        
+        bool isJumping = Input.GetButtonDown("Jump");
+        if (isJumping)
+        {
+            myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, jumpspeed);
+        }
     }
 
     private void ChangeRunAnimation()

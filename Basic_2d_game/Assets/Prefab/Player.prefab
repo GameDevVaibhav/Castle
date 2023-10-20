@@ -197,6 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runspeed: 20
   jumpspeed: 50
+  climbspeed: 1
 --- !u!114 &4650119847013943648
 MonoBehaviour:
   m_ObjectHideFlags: 0
