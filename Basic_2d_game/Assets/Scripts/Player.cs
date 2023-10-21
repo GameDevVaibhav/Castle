@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,6 +14,7 @@ public class Player : MonoBehaviour
     PolygonCollider2D myPolygonCollider2d;
 
     float startingGravityScale;
+    bool isHurting = false;
 
     [SerializeField]
     float runspeed = 2f;
@@ -19,6 +22,9 @@ public class Player : MonoBehaviour
     float jumpspeed = 2f;
     [SerializeField]
     float climbspeed = 8f;
+    [SerializeField]
+    Vector2 hitKick=new Vector2(50f,50f);
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,10 +39,17 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-        Run();
-        Jump();
-        climb();
+        if (!isHurting)
+        {
+            Run();
+            Jump();
+            climb();
+
+            if (myBoxCollider2d.IsTouchingLayers(LayerMask.GetMask("Enemy")))
+            {
+                PlayerHit();
+            }
+        }
     }
    
 
@@ -50,9 +63,27 @@ public class Player : MonoBehaviour
         FlipSprite();
         ChangeRunAnimation();
         ChangeJumpAnimation();
+
        
     }
-  
+
+    private void PlayerHit()
+    {
+        myRigidbody2D.velocity = hitKick * new Vector2(-transform.localScale.x, 1f);
+
+        myAnimator.SetTrigger("Hitting");
+        isHurting= true;
+
+        StartCoroutine(StopHurting());
+
+    }
+
+    IEnumerator StopHurting()
+    {
+        yield return new WaitForSeconds(2f);
+
+        isHurting = false;
+    }
 
     private void climb()
     {
@@ -98,4 +129,6 @@ public class Player : MonoBehaviour
             transform.localScale = new Vector2(Mathf.Sign(myRigidbody2D.velocity.x),1f);
         }
     }
+
+    
 }
