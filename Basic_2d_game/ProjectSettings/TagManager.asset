@@ -16,7 +16,7 @@ TagManager:
   - Player
   - World Confiner
   - Enemy
-  - 
+  - Interactable
   - 
   - 
   - 
@@ -52,6 +52,9 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 262980559
+    locked: 0
+  - name: Interactable
+    uniqueID: 2527376907
     locked: 0
   - name: Player
     uniqueID: 1292341481
