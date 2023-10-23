@@ -23,7 +23,11 @@ public class Player : MonoBehaviour
     [SerializeField]
     float climbspeed = 8f;
     [SerializeField]
+    float attackRadius = 3f;
+    [SerializeField]
     Vector2 hitKick=new Vector2(50f,50f);
+    [SerializeField]
+    Transform hurtBox;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +48,7 @@ public class Player : MonoBehaviour
             Run();
             Jump();
             climb();
+            Attack();
 
             if (myBoxCollider2d.IsTouchingLayers(LayerMask.GetMask("Enemy")))
             {
@@ -51,7 +56,21 @@ public class Player : MonoBehaviour
             }
         }
     }
-   
+
+    private void Attack()
+    {
+        if(Input.GetButtonDown("Fire1"))
+        {
+            myAnimator.SetTrigger("Attacking");
+
+            Collider2D[] enemiesToHit= Physics2D.OverlapCircleAll(hurtBox.position, attackRadius, LayerMask.GetMask("Enemy"));
+
+            foreach(Collider2D enemy in enemiesToHit)
+            {
+                enemy.GetComponent<Enemy>().Dying();
+            }
+        }
+    }
 
     public void Run()
     {
@@ -130,5 +149,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(hurtBox.position, attackRadius);
+    }
+
 }

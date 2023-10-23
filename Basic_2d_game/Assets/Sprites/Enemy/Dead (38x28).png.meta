@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e9a3127db4be8a5408ef485b11a5d774
+guid: ebe99088fc09f8e46b286d330680c79d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 30
+  spritePixelsToUnits: 22
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Attack (78x58)_0
+      name: Dead (38x28)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 78
-        height: 58
+        width: 38
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f907367c41cb3ea44bcdea6d0fa9cc4a
-      internalID: -127041709
+      spriteID: 6c3ae487f7130b343be53edbccc8e4d5
+      internalID: 1546776826
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack (78x58)_1
+      name: Dead (38x28)_1
       rect:
         serializedVersion: 2
-        x: 78
+        x: 38
         y: 0
-        width: 78
-        height: 58
+        width: 38
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04267bde5384f52488e5c909cb79e196
-      internalID: 331165081
+      spriteID: 57d4700395493aa4ab5fff451cdcc1bd
+      internalID: -1440610101
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack (78x58)_2
+      name: Dead (38x28)_2
       rect:
         serializedVersion: 2
-        x: 156
+        x: 76
         y: 0
-        width: 78
-        height: 58
+        width: 38
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,8 +179,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa30b4bef139cd4418941b79ea625fdb
-      internalID: 1040764950
+      spriteID: 59c26a70589d3db40ab392de9f5677a0
+      internalID: -1106995667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead (38x28)_3
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 0
+        width: 38
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 388609046e15d45439f75cf96bc20434
+      internalID: -1231542544
       vertices: []
       indices: 
       edges: []
@@ -196,9 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Attack (78x58)_0: -127041709
-      Attack (78x58)_1: 331165081
-      Attack (78x58)_2: 1040764950
+      Dead (38x28)_0: 1546776826
+      Dead (38x28)_1: -1440610101
+      Dead (38x28)_2: -1106995667
+      Dead (38x28)_3: -1231542544
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

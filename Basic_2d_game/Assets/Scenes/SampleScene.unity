@@ -20714,7 +20714,7 @@ Transform:
   m_GameObject: {fileID: 485923307}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.809967, y: 11.216666, z: -11.292414}
+  m_LocalPosition: {x: -4.7399664, y: 11.216666, z: -11.292414}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -20825,7 +20825,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.025417, y: 15.694889, z: -10.002565}
+  m_LocalPosition: {x: 10.095417, y: 15.694889, z: -10.002565}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27236,7 +27236,7 @@ Transform:
   m_GameObject: {fileID: 1741557602}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.809967, y: 11.216666, z: -11.292414}
+  m_LocalPosition: {x: -4.7399664, y: 11.216666, z: -11.292414}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27365,7 +27365,7 @@ Transform:
   m_GameObject: {fileID: 1834580806}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.809967, y: 11.216666, z: -11.292414}
+  m_LocalPosition: {x: -4.7399664, y: 11.216666, z: -11.292414}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27599,7 +27599,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2613013050981850586, guid: 34bfe996a0b593e48b169b5355e7401d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.61
+      value: 8.68
       objectReference: {fileID: 0}
     - target: {fileID: 2613013050981850586, guid: 34bfe996a0b593e48b169b5355e7401d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -27650,22 +27650,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4857048686384774321, guid: 6d356a06e6256b84c9cbc01a413ffc01, type: 3}
-      propertyPath: explosionForce.x
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 4857048686384774321, guid: 6d356a06e6256b84c9cbc01a413ffc01, type: 3}
-      propertyPath: explosionForce.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5318461939774862357, guid: 6d356a06e6256b84c9cbc01a413ffc01, type: 3}
-      propertyPath: m_SortingLayer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5318461939774862357, guid: 6d356a06e6256b84c9cbc01a413ffc01, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1791786107
-      objectReference: {fileID: 0}
     - target: {fileID: 6970877315124255250, guid: 6d356a06e6256b84c9cbc01a413ffc01, type: 3}
       propertyPath: m_Name
       value: Bomb
