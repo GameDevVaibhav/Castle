@@ -27996,6 +27996,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4456302420019158630, guid: e7b39ecc366ddaa409672f95d39de0df, type: 3}
+      propertyPath: heartPickupSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 04778697ccc612e4497e2674a18f753e, type: 3}
     - target: {fileID: 5298288704261071073, guid: e7b39ecc366ddaa409672f95d39de0df, type: 3}
       propertyPath: m_Name
       value: Hearts
