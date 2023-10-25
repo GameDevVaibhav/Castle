@@ -38,6 +38,8 @@ public class Player : MonoBehaviour
         myBoxCollider2d= GetComponent<BoxCollider2D>();
         myPolygonCollider2d= GetComponent<PolygonCollider2D>();
         startingGravityScale=myRigidbody2D.gravityScale;
+
+        myAnimator.SetTrigger("Appearing");
     }
 
     // Update is called once per frame
@@ -68,8 +70,19 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("Vertical"))
         {
-            FindObjectOfType<ExitDoor>().StartLoadingNextLevel();
+            myAnimator.SetTrigger("Disappearing");
+           
         }
+    }
+
+    public void LoadNextLevel()
+    {
+        FindObjectOfType<ExitDoor>().StartLoadingNextLevel();
+        TurnOffRenderer();
+    }
+    public void TurnOffRenderer()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
     }
 
     private void Attack()
