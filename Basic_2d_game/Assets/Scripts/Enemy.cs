@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     float enemyRunSpeed = 5f;
     Rigidbody2D enemyRigidBody;
     Animator enemyAnimator;
+    [SerializeField]
+    AudioClip dyingSFX;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,5 +67,10 @@ public class Enemy : MonoBehaviour
     private bool IsFacingLeft()
     {
         return transform.localScale.x > 0;
+    }
+
+    void playDyingSFX()
+    {
+        AudioSource.PlayClipAtPoint(dyingSFX,Camera.main.transform.position);
     }
 }

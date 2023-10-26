@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     Animator myAnimator;
     BoxCollider2D myBoxCollider2d;
     PolygonCollider2D myPolygonCollider2d;
+    AudioSource myAudioSource;
 
     float startingGravityScale;
     bool isHurting = false;
@@ -28,6 +29,7 @@ public class Player : MonoBehaviour
     Vector2 hitKick=new Vector2(50f,50f);
     [SerializeField]
     Transform hurtBox;
+    [SerializeField] AudioClip jumpingSFX, attackingSFX,getHitSFX, walkingSFX;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +39,7 @@ public class Player : MonoBehaviour
         myAnimator= GetComponent<Animator>();
         myBoxCollider2d= GetComponent<BoxCollider2D>();
         myPolygonCollider2d= GetComponent<PolygonCollider2D>();
+        myAudioSource= GetComponent<AudioSource>();
         startingGravityScale=myRigidbody2D.gravityScale;
 
         myAnimator.SetTrigger("Appearing");
@@ -90,6 +93,7 @@ public class Player : MonoBehaviour
         if(Input.GetButtonDown("Fire1"))
         {
             myAnimator.SetTrigger("Attacking");
+            myAudioSource.PlayOneShot(attackingSFX);
 
             Collider2D[] enemiesToHit= Physics2D.OverlapCircleAll(hurtBox.position, attackRadius, LayerMask.GetMask("Enemy"));
 
@@ -114,11 +118,29 @@ public class Player : MonoBehaviour
        
     }
 
+    void StepsSFX()
+    {
+        bool playerMovingHorizontally = Mathf.Abs(myRigidbody2D.velocity.x) > Mathf.Epsilon;
+
+        if(playerMovingHorizontally)
+        {
+            if (myBoxCollider2d.IsTouchingLayers(LayerMask.GetMask("Ground")))
+            {
+                myAudioSource.PlayOneShot(walkingSFX);
+            }
+        }
+        else
+        {
+            myAudioSource.Stop();
+        }
+    }
+
     public void PlayerHit()
     {
         myRigidbody2D.velocity = hitKick * new Vector2(-transform.localScale.x, 1f);
 
         myAnimator.SetTrigger("Hitting");
+        myAudioSource.PlayOneShot(getHitSFX);
         isHurting= true;
 
         FindObjectOfType<GameSession>().ProcessPlayerDeath();
@@ -155,6 +177,8 @@ public class Player : MonoBehaviour
         if (isJumping)
         {
             myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, jumpspeed);
+
+            myAudioSource.PlayOneShot(jumpingSFX);
         }
     }
 
